@@ -9,9 +9,7 @@
             type="com.example.kotlinmvvmtutorial.MainActivity" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
@@ -29,9 +27,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editTextInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewNumber" />
@@ -43,8 +42,8 @@
             android:layout_marginHorizontal="8dp"
             android:text="@string/plus"
             app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
-            app:layout_constraintStart_toEndOf="@+id/editText"
-            app:layout_constraintTop_toTopOf="@+id/editText" />
+            app:layout_constraintStart_toEndOf="@+id/editTextInput"
+            app:layout_constraintTop_toTopOf="@+id/editTextInput" />
 
         <Button
             android:id="@+id/buttonMinus"
@@ -53,7 +52,7 @@
             android:text="@string/minus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonPlus"
-            app:layout_constraintTop_toTopOf="@+id/editText" />
+            app:layout_constraintTop_toTopOf="@+id/editTextInput" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

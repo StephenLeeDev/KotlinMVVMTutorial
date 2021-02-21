@@ -22,10 +22,12 @@ class NumberViewModel : ViewModel() {
 
     fun updateValue(actionType: ActionType, input: Int) {
         when(actionType) {
-            ActionType.PLUS ->
+            ActionType.PLUS -> {
                 _currentValue.value = _currentValue.value?.plus(input)
-            ActionType.MINUS ->
+            }
+            ActionType.MINUS -> {
                 _currentValue.value = _currentValue.value?.minus(input)
+            }
         }
     }
 }

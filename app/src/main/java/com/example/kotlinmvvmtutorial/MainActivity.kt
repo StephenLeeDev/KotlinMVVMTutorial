@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlinmvvmtutorial.databinding.ActivityMainBinding
+import com.example.kotlinmvvmtutorial.viewmodel.ActionType
 import com.example.kotlinmvvmtutorial.viewmodel.NumberViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,13 +25,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         numberViewModel = ViewModelProvider(this).get(NumberViewModel::class.java)
         numberViewModel.currentValue.observe(this, Observer {
-
+            binding.textViewNumber.text = it.toString()
         })
     }
 
     override fun onClick(v: View?) {
-        when(v) {
 
+        val userInput = binding.editTextInput.text.toString().toInt()
+
+        when(v) {
+            binding.buttonPlus -> {
+                numberViewModel.updateValue(actionType = ActionType.PLUS, input = userInput)
+            }
+            binding.buttonMinus -> {
+                numberViewModel.updateValue(actionType = ActionType.MINUS, input = userInput)
+            }
         }
     }
 }
